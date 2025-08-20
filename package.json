@@ -1,0 +1,33 @@
+{
+  "name": "cypress-automation-vueling-fk",
+  "version": "1.0.0",
+  "description": "Automation of test e2e for vueling with cypress",
+  "scripts": {
+    "test": "cypress run",
+    "cy:open": "cypress open",
+    "cy:run-chrome": "cypress run --browser chrome",
+    "cy:run-firefox": "cypress run --browser firefox",
+    "cy:verify": "cypress verify"
+  },
+  "keywords": [
+    "cypress",
+    "vueling",
+    "automation",
+    "e2e"
+  ],
+  "author": "Franklin Gonzalez apostolfranklin1@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.0",
+    "@babel/register": "^7.27.1",
+    "@reportportal/agent-js-cypress": "^5.5.0",
+    "chai": "^5.2.1",
+    "cypress": "^14.5.3",
+    "cypress-mochawesome-reporter": "^3.5.0",
+    "fs-extra": "^11.2.0",
+    "path": "^0.12.7"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
