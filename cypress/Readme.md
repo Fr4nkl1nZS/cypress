@@ -21,7 +21,7 @@ Framework de pruebas E2E para el flujo de alquiler de coches en Vueling. Incluye
    npm install
    ```
 
-## 🚦 Ejecución 
+## 🚦 Ejecución
 - **Modo interactivo**:
   ```bash
   npm run cy:open
