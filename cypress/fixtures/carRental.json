@@ -1,0 +1,7 @@
+{
+  "pickupLocation": "Barcelona-Airport",
+  "driverAge": 40,
+  "insurance": ["Basic", "Premium"],
+  "pickupDaysFromToday": 3,
+  "rentalDurationDays": 2
+}
