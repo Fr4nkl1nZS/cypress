@@ -1,27 +1,21 @@
-2025/08/14-10:39:49.389 3870 Reusing MANIFEST C:\Users\apost\Documents\cypress-automation-vueling-FK\chrome_temp\Default\Local Storage\leveldb/MANIFEST-000001
-2025/08/14-10:39:49.394 3870 Recovering log #19
-2025/08/14-10:39:49.396 3870 Reusing old log C:\Users\apost\Documents\cypress-automation-vueling-FK\chrome_temp\Default\Local Storage\leveldb/000019.log 
-2025/08/14-10:45:14.249 33f4 Level-0 table #23: started
-2025/08/14-10:45:14.252 33f4 Level-0 table #23: 19309 bytes OK
-2025/08/14-10:45:14.253 33f4 Delete type=0 #19
-2025/08/14-12:12:24.336 33f4 Level-0 table #25: started
-2025/08/14-12:12:24.339 33f4 Level-0 table #25: 19049 bytes OK
-2025/08/14-12:12:24.341 33f4 Delete type=0 #22
-2025/08/14-15:04:38.976 33f4 Level-0 table #27: started
-2025/08/14-15:04:38.979 33f4 Level-0 table #27: 16150 bytes OK
-2025/08/14-15:04:38.982 33f4 Delete type=0 #24
-2025/08/14-15:04:38.982 33f4 Compacting 4@0 + 1@1 files
-2025/08/14-15:04:38.986 33f4 Generated table #28@0: 25 keys, 20714 bytes
-2025/08/14-15:04:38.986 33f4 Compacted 4@0 + 1@1 files => 20714 bytes
-2025/08/14-15:04:38.986 33f4 compacted to: files[ 0 1 1 0 0 0 0 ]
-2025/08/14-15:04:38.987 33f4 Delete type=2 #18
-2025/08/14-15:04:38.987 33f4 Delete type=2 #20
-2025/08/14-15:04:38.987 33f4 Delete type=2 #23
-2025/08/14-15:04:38.987 33f4 Delete type=2 #25
-2025/08/14-15:04:38.987 33f4 Delete type=2 #27
-2025/08/14-15:53:43.262 33f4 Level-0 table #30: started
-2025/08/14-15:53:43.265 33f4 Level-0 table #30: 16182 bytes OK
-2025/08/14-15:53:43.267 33f4 Delete type=0 #26
-2025/08/14-16:53:15.149 33f4 Level-0 table #32: started
-2025/08/14-16:53:15.153 33f4 Level-0 table #32: 17757 bytes OK
-2025/08/14-16:53:15.154 33f4 Delete type=0 #29
+2026/03/04-09:26:46.315 2cc8 Reusing MANIFEST C:\Users\apost\Documents\cypress-automation-vueling-FK\chrome_temp\Default\Local Storage\leveldb/MANIFEST-000001
+2026/03/04-09:26:46.319 2cc8 Recovering log #14
+2026/03/04-09:26:46.320 2cc8 Reusing old log C:\Users\apost\Documents\cypress-automation-vueling-FK\chrome_temp\Default\Local Storage\leveldb/000014.log 
+2026/03/04-10:04:05.956 695c Level-0 table #18: started
+2026/03/04-10:04:05.960 695c Level-0 table #18: 17454 bytes OK
+2026/03/04-10:04:05.961 695c Delete type=0 #14
+2026/03/04-10:04:05.962 695c Compacting 4@0 + 1@1 files
+2026/03/04-10:04:05.966 695c Generated table #19@0: 42 keys, 4777 bytes
+2026/03/04-10:04:05.966 695c Compacted 4@0 + 1@1 files => 4777 bytes
+2026/03/04-10:04:05.967 695c compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/03/04-10:04:05.967 695c Delete type=2 #7
+2026/03/04-10:04:05.967 695c Delete type=2 #9
+2026/03/04-10:04:05.968 695c Delete type=2 #12
+2026/03/04-10:04:05.968 695c Delete type=2 #15
+2026/03/04-10:04:05.968 695c Delete type=2 #18
+2026/03/04-12:08:28.867 695c Level-0 table #21: started
+2026/03/04-12:08:28.871 695c Level-0 table #21: 17230 bytes OK
+2026/03/04-12:08:28.872 695c Delete type=0 #17
+2026/03/04-13:05:12.911 695c Level-0 table #23: started
+2026/03/04-13:05:12.914 695c Level-0 table #23: 17660 bytes OK
+2026/03/04-13:05:12.915 695c Delete type=0 #20

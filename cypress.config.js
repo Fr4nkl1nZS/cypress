@@ -7,8 +7,8 @@
       baseUrl: "https://cars.vueling.com",
       defaultCommandTimeout: 40000,
       pageLoadTimeout: 60000,
-      viewportWidth: 430,
-      viewportHeight: 932,
+      viewportWidth: 422,
+      viewportHeight: 824,
       chromeWebSecurity: false,
       video: true,
       experimentalSessionAndOrigin: true,
@@ -27,7 +27,7 @@
         on('before:browser:launch', (browser, launchOptions) => {
           if(browser.name == 'chrome') {
             launchOptions.args.push(
-              '--disable-web-securty',
+              '--disable-web-security',
               '--disable-site-isolation-trials',
               '--user-data-dir=' + path.join(__dirname, 'chrome_temp'),
               '--disable-extensions'

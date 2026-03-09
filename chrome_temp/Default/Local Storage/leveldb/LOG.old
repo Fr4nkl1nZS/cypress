@@ -1,3 +1,6 @@
-2025/08/14-09:41:40.043 4d0c Reusing MANIFEST C:\Users\apost\Documents\cypress-automation-vueling-FK\chrome_temp\Default\Local Storage\leveldb/MANIFEST-000001
-2025/08/14-09:41:40.049 4d0c Recovering log #19
-2025/08/14-09:41:40.052 4d0c Reusing old log C:\Users\apost\Documents\cypress-automation-vueling-FK\chrome_temp\Default\Local Storage\leveldb/000019.log 
+2026/03/03-16:05:07.313 6af4 Reusing MANIFEST C:\Users\apost\Documents\cypress-automation-vueling-FK\chrome_temp\Default\Local Storage\leveldb/MANIFEST-000001
+2026/03/03-16:05:07.324 6af4 Recovering log #11
+2026/03/03-16:05:07.327 6af4 Reusing old log C:\Users\apost\Documents\cypress-automation-vueling-FK\chrome_temp\Default\Local Storage\leveldb/000011.log 
+2026/03/03-16:11:17.904 1f24 Level-0 table #15: started
+2026/03/03-16:11:17.909 1f24 Level-0 table #15: 12113 bytes OK
+2026/03/03-16:11:17.911 1f24 Delete type=0 #11

@@ -94,50 +94,105 @@ clickReturnDateButton() {
         const pickupDaySet = Cypress.env('pickupDay') || 0;
         const returnDaySet = pickupDaySet + returnDay;
 
-        cy.wait(500);
+        cy.log('Selecting return date (day ${returnDateSet})');
+        return this.selectAvailableDay(returnDaySet);
     }
 
-    selectRangeAge() {
-        cy.get(':nth-child(2) > .ct-age-button', { timeout: 15000 })
+    selectRangeAge(ageRange = '30-69', specificAge = 22) {
+        cy.log(`Selecting driver age range: ${ageRange}`);
+        cy.get('.ct-age-button', { timeout: 15000 })
+        .first()
         .should('be.visible')
-        .and('have.css', 'cursor', 'pointer')
         .click({ force: true });
 
-    cy.get('.ct-modal', { timeout: 20000 })
-        .should('be.visible')
-        .within(() => {
-            cy.get('.ct-btn', { timeout: 20000 })
-                .should('be.visible')
-                .and(($btn) => {
-                    const btnText = $btn.text().trim();
-                    expect(btnText).to.match(/confirmar/i);
-                })
-                .click({ force: true });
-        });
+    cy.wait(3000);
 
-    cy.get('.ct-modal', { timeout: 20000 })
-        .should('not.be.visible');
+    let index;
+   if(ageRange === '18-29') {
+    index = 1;
+   } else if(ageRange === '30-69') {
+    index = 2;
+   } else if(ageRange === '70+') {
+    index = 3;
+   } else {
+    index = 2;
+   }
+
+   const selector = `:nth-child(${index}) > .ct-age-button`;
+   cy.log(`Using selector: ${selector} for range ${ageRange}`);
+
+    cy.get(selector, { timeout: 15000})
+    .should('be.visible')
+    .click({ force: true});
+
+    // if range is 18 - 29, add specific age
+    if(ageRange === '18-29') {
+        cy.log(`Entering specific age: ${specificAge} in age panel`);
+
+        // waiting to appear the age textbox
+        cy.contains('label', 'Enter your age', { timeout: 10000 })
+        .should('be.visible')
+        .then(($label) => {
+            const inputId = $label.attr('for');
+
+            cy.log(`Found label with for="${inputId}"`);
+
+            cy.get(`#${inputId}`, { timeout: 10000})
+            .should('be.visible')
+            .clear()
+            .type(specificAge.toString(), { delay: 100});
+
+            cy.get('.ct-btn', { timeout: 15000})
+            .should('be.visible')
+            .click({ force: true});
+        })
+
+        // 🛑 Wait for loader to disappear
+        cy.get('.ct-loading-spinner, .loading, .spinner', { timeout: 30000 })
+        .should('not.exist');
+
+    }
+
+    cy.log(`✅ Age range ${ageRange} selected successfully`);
+    cy.wait(1000);
+
 }
 
     selectSearch() {
+        cy.log('Searching for cars....')
         cy.get('body', { timeout: 30000 })
         .should('not.contain', 'Cargando...');
 
-    cy.get('.ct-btn', { timeout: 30000 })
-        .filter(':visible')
-        .should(($buttons) => {
-            const confirmBtn = $buttons.filter((i, el) => 
-                el.textContent.trim().match(/confirmar|continuar/i)
-            );
-            expect(confirmBtn).to.have.length(1);
-        })
-        .first()
-        .click({ force: true });
+        cy.intercept('GET', '/book?*').as('searchRequest');
 
-    cy.url({ timeout: 45000 })
-        .should('include', '/reservation');
-    cy.get('.reservation-container', { timeout: 30000 })
-        .should('be.visible');
+        cy.log('Clicking search button...');
+        cy.get('.ct-btn, [data-testid="search-button"], button:contains("buscar")', { timeout: 30000})
+        .filter(':visible')
+        .first()
+        .should('be.visible')
+        .click({ force: true});
+
+        cy.wait('@searchRequest', { timeout: 30000}).then((interception) => {
+            cy.log(`Search response status: ${interception.response.statusCode}`);
+
+            if(interception.response.statusCode === 302) {
+                const redirectUrl = interception.response.headers.location;
+                const fullUrl = `https://cars.vueling.com${redirectUrl}`;
+                cy.log(`🚗 Redirecting to results: ${fullUrl}`);
+
+                cy.visit(fullUrl, { timeout: 60000, failOnStatusCode: false});
+            }
+        });
+
+        cy.log('⏳ Waiting for results to load...');
+        cy.get('[data-testid="car-item"], .ct-car-item, .car-list', { timeout: 60000})
+        .should('be.visible')
+        .then(($cars) => {
+            cy.log(`✅ Found ${$cars.length} cars!`);
+
+            cy.wrap($cars.first()).click({ force: true});
+            cy.log('✅ Search completed sucessfully');
+        })
 
     }
 

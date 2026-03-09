@@ -1,8 +1,4 @@
-import timeout from "studio/src/plugin/timeout";
 import { CAR_RENTAL, HOME_PAGE } from "../support/selectors";
-import { resolve } from "path";
-import { rejects } from "assert";
-import { error } from "console";
 
 class HomePage {
     elements = HOME_PAGE;
@@ -134,14 +130,14 @@ acceptCarRentalCookies() {
     });
 }
 
-selectPickupLocation() {
+selectPickupLocation(location) {
     const maxAttempts = 3;
     let attempts = 0;
 
     const pickupButtonLocator = this.carRentalElements.SEARCH_FROM.PICKUP_LOCATION;
     const modalSelector = this.carRentalElements.SEARCH_FROM.PICKUP_MODAL;
     const searchInputSelector = this.carRentalElements.SEARCH_FROM.PICKUP_SEARCH_INPUT;
-    const resultsSelector = this.carRentalElements.SEARCH_FROM.PICKUP_RESULT;
+    const resultsSelector = this.carRentalElements.SEARCH_FROM.PICKUP_RESULTS;
 
     const trySelectPickup = () => {
         attempts++;

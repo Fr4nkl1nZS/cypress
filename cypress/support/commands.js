@@ -10,7 +10,7 @@ Cypress.Commands.add('forceCleanCookies', () => {
     cy.window().then((win) => {
         const domains = ['.vueling.com', 'vueling.com', 'cars.vueling.com'];
         domains.forEach(domain => { 
-            const cookies = win.document.cookie.split(',');
+            const cookies = win.document.cookie.split('; ');
             cookies.forEach(cookie => {
                 const [name] = cookie.split('=');
                  win.document.cookie = `${name.trim()}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}; path=/`;
